@@ -30,17 +30,7 @@ public class JavaKafkaProducer {
         Properties props = new Properties();
         props.put("bootstrap.servers", brokerList);
         props.put("schema.registry.url", schemaRegistryUrl);
-        /**
-         * 0表示不等待结果返回
-         * 1表示等待至少有一个服务器返回数据接收标识
-         * -1表示必须接收到所有的服务器返回标识，及同步写入
-         * */
         props.put("request.required.acks", "0");
-        /**
-         * 内部发送数据是异步还是同步
-         * sync：同步, 默认
-         * async：异步
-         */
         props.put("producer.type", "async");
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, org.apache.kafka.common.serialization.StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, org.apache.kafka.common.serialization.StringSerializer.class);
