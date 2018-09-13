@@ -1,0 +1,12 @@
+"namespace": "org.mhealth.open.data.avro",
+    "name": "MMessage",
+    "type": "record",
+    "fields": [
+        {"name": "id","type":"id"},
+        {"name": "user_id", "type": "string" },
+        {"name": "timestamp", "type": "long"},
+        {"name":"body","type":{"name":"measures","type":"record",
+        "fields": [{"name":"measure","type":{"type":"array","items":{"type":"map","values":"double"}}} ]}}
+
+    ]
+}
