@@ -25,8 +25,9 @@ public class Consumer {
         System.out.println("running!");
 
         KafkaConsumer kafkaConsumer = new KafkaConsumer(props);
-        //kafkaConsumer.subscribe(Arrays.asList("CluStreamTest"));//"blood-pressure", "body-temperature", "body-fat-percentage","heart-rate","step-count","sleep-duration"))
-        kafkaConsumer.subscribe(Arrays.asList("matchpattern1"));
+        kafkaConsumer.subscribe(Arrays.asList("blood-pressure", "body-temperature", "body-fat-percentage","heart-rate",
+                "step-count","sleep-duration"));
+        //kafkaConsumer.subscribe(Arrays.asList("matchpattern1"));
         while (true) {
             ConsumerRecords records = kafkaConsumer.poll(1000);
 
