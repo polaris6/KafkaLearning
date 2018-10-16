@@ -1,9 +1,9 @@
 package ISS;
 
-import org.apache.avro.Schema;
-import org.apache.avro.generic.GenericData;
-import org.apache.avro.generic.GenericRecord;
-import org.apache.avro.generic.GenericRecordBuilder;
+//import org.apache.avro.Schema;
+//import org.apache.avro.generic.GenericData;
+//import org.apache.avro.generic.GenericRecord;
+//import org.apache.avro.generic.GenericRecordBuilder;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -20,12 +20,12 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class JavaKafkaProducer {
     private Logger logger = Logger.getLogger(JavaKafkaProducer.class);
-    public static final String TOPIC_NAME = "CluStreamTest";
+    public static final String TOPIC_NAME = "test";
 
     public static void main(String[] args) {
       
-        String brokerList = "192.168.222.226:9092";
-        String schemaRegistryUrl = "http://192.168.222.226:8081";
+        String brokerList = "192.168.222.5:9092";
+        String schemaRegistryUrl = "http://192.168.222.5:8081";
 
         Properties props = new Properties();
         props.put("bootstrap.servers", brokerList);

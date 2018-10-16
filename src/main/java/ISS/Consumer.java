@@ -11,12 +11,12 @@ import java.util.Arrays;
 import java.util.Properties;
 
 public class Consumer {
-    public static void main(String[] args) throws UnknownHostException {
+    public static void main(String[] args) throws UnknownHostException{
         Properties props = new Properties();
-//        props.put("zookeeper.connect", "192.168.222.229:2181");
+        //props.put("zookeeper.connect", "192.168.222.5:2181");
         props.put("bootstrap.servers", "192.168.222.5:9092");
         props.put("group.id", "hh");
-        props.put("schema.registry.url", "http://192.168.222.5:8081");
+        //props.put("schema.registry.url", "http://192.168.222.5:8081");
         props.put("enable.auto.commit", false);
         props.put("key.deserializer", org.apache.kafka.common.serialization.StringDeserializer.class);
         props.put("value.deserializer", org.apache.kafka.common.serialization.StringDeserializer.class);
@@ -31,13 +31,13 @@ public class Consumer {
         while(true){
             ConsumerRecords records = kafkaConsumer.poll(1000);
 
-            for (Object record : records) {
+            for(Object record : records) {
                 ConsumerRecord consumerRecord = ((ConsumerRecord) record);
-                System.out.printf("the key of the record is %s, and the value is %s, the partition of the record is %s, offset is %s \n, "
-                        , consumerRecord.key()
-                        , consumerRecord.value()
-                        , consumerRecord.partition()
-                        , consumerRecord.offset());
+                System.out.printf("the key of the record is %s, and the value is %s, the partition of the record is %s, offset is %s \n, ",
+                        consumerRecord.key(),
+                        consumerRecord.value(),
+                        consumerRecord.partition(),
+                        consumerRecord.offset());
             }
         }
     }

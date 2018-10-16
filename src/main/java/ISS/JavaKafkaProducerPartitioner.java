@@ -3,7 +3,7 @@ package ISS;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.avro.generic.GenericRecord;
+//import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.clients.producer.Partitioner;
 import org.apache.kafka.common.Cluster;
 import org.apache.kafka.common.PartitionInfo;
