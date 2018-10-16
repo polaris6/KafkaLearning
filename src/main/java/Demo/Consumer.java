@@ -11,7 +11,7 @@ public class Consumer {
     public static void main(String[] args) {
         Properties props = new Properties();
         props.put("bootstrap.servers", "192.168.222.5:9092");
-        props.put("group.id", "hell");
+        props.put("group.id", "he");
         props.put("key.deserializer", "org.apache.kafka.common.serialization.IntegerDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("enable.auto.commit", "true");
@@ -25,7 +25,7 @@ public class Consumer {
             while (true){
                 ConsumerRecords<Integer, String> records = consumer.poll(100);
                 for (ConsumerRecord<Integer, String> record : records)
-                    System.out.println("offset = " + record.offset() + ", key = " + record.key() + ", value = " + record.value());
+                    System.out.printf("offset = %d, key = %s, value = %s \n", record.offset(), record.key(), record.value());
             }
         }finally {
             consumer.close();
