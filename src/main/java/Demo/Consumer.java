@@ -23,7 +23,7 @@ public class Consumer {
         consumer.subscribe(Arrays.asList("test"));
         try {
             while (true){
-                ConsumerRecords<Integer, String> records = consumer.poll(100);
+                ConsumerRecords<Integer, String> records = consumer.poll(1000);
                 for (ConsumerRecord<Integer, String> record : records)
                     System.out.printf("offset = %d, key = %s, value = %s \n", record.offset(), record.key(), record.value());
             }
