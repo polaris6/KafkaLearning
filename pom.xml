@@ -6,6 +6,12 @@
     <groupId>ISS</groupId>
     <artifactId>Producer</artifactId>
     <version>1.4.1-SNAPSHOT</version>
+    <repositories>
+        <repository>
+            <id>confluent</id>
+            <url>http://packages.confluent.io/maven/</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <!-- Logging -->
@@ -24,6 +30,11 @@
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-clients</artifactId>
             <version>0.11.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>2.6.0</version>
         </dependency>
 
         <!-- Testing -->
