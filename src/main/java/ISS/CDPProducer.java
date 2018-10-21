@@ -10,7 +10,6 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -18,8 +17,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class JavaKafkaProducer {
-    private Logger logger = Logger.getLogger(JavaKafkaProducer.class);
+/**
+ * chronic-disease-project 慢病项目的producer
+ * Created by zhangbo on 2017/10/05
+ */
+public class CDPProducer {
+    private Logger logger = Logger.getLogger(CDPProducer.class);
     public static final String TOPIC_NAME = "test";
 
     public static void main(String[] args) {
@@ -42,7 +45,7 @@ public class JavaKafkaProducer {
          * 默认是：kafka.producer.DefaultPartitioner ==> 按照key的hash进行分区
          * 可选:kafka.serializer.ByteArrayPartitioner ==> 转换为字节数组后进行hash分区
          */
-        props.put("partitioner.class", "ISS.JavaKafkaProducerPartitioner");
+        props.put("partitioner.class", "ISS.ProducerPartitioner");
 
         // 重试次数
         props.put("message.send.max.retries", "3");
@@ -144,7 +147,7 @@ public class JavaKafkaProducer {
     }
 
     private static Schema loadSchema(final String name) throws IOException {
-        try (InputStream input = JavaKafkaProducer.class.getClassLoader()
+        try (InputStream input = CDPProducer.class.getClassLoader()
                 .getResourceAsStream("avro/io/confluent/examples/streams/" + name)) {
             return new Schema.Parser().parse(input);
         }

@@ -12,10 +12,10 @@ import org.apache.log4j.Logger;
 /**
  * Created by zhangbo on 10/05.
  */
-public class JavaKafkaProducerPartitioner implements Partitioner {
+public class ProducerPartitioner implements Partitioner {
 
-    private Logger logger = Logger.getLogger(JavaKafkaProducerPartitioner.class);
-    public JavaKafkaProducerPartitioner() {
+    private Logger logger = Logger.getLogger(ProducerPartitioner.class);
+    public ProducerPartitioner() {
         // TODO Auto-generated constructor stub
     }
 
